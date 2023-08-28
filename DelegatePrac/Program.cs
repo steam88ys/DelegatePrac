@@ -25,7 +25,13 @@ namespace DelegatePrac
             };
             // 정렬
             // 1. Delegator를 활용한 구현 방법
-            products.Sort(SortWithPrice);
+            // products.Sort(SortWithPrice);
+
+            // 2. 무명 Delegator를 활용한 구현 방법
+            products.Sort(delegate (Product x, Product y)
+            {
+                return x.Price.CompareTo(y.Price);
+            });
 
             //출력
             foreach (var item in products)
