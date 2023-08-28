@@ -12,6 +12,11 @@ namespace DelegatePrac
         {
             public string Name { get; set; }
             public int Price { get; set; }
+
+            public override string ToString()
+            {
+                return this.Name + " : " + this.Price;
+            }
         }
         static void Main(string[] args)
         {
@@ -42,10 +47,13 @@ namespace DelegatePrac
             products.Sort((x, y) => x.Price.CompareTo(y.Price));
 
             //출력
-            foreach (var item in products)
-            {
-                Console.WriteLine(item.Name + " : " + item.Price);
-            }
+            products.ForEach(p => Console.WriteLine(p));
+
+            // foreach (var item in products)
+            // {
+            //    Console.WriteLine(item.Name + " : " + item.Price);
+            // }
+
         }
 
         private static int SortWithPrice(Product x, Product y)
